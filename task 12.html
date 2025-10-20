@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 12</title>
+</head>
+<body>
+  <h2>Enter Your Information</h2>
+
+  <label for="name">Name:</label>
+  <input type="text" id="name" placeholder="Enter your name"><br><br>
+
+  <label for="age">Age:</label>
+  <input type="number" id="age" placeholder="Enter your age"><br><br>
+
+  <button id="submitBtn">Submit</button>
+
+  <script>
+    document.getElementById("submitBtn").addEventListener("click", function() {
+      const name = document.getElementById("name").value;
+      const age = document.getElementById("age").value;
+      const timestamp = new Date().toLocaleString();
+
+      const userInfo = { name, age, timestamp };
+      const { name: userName, age: userAge, timestamp: userTime } = userInfo;
+
+      window.alert(`Your name is: ${userName}\nYour age is: ${userAge}\nTimestamp: ${userTime}`);
+    });
+  </script>
+</body>
+</html>
