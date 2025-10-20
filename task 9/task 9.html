@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task 9</title>
+</head>
+<body>
+    <button id="getIpBtn">Get ip</button>
+
+    <script>
+        function fetchIP() {
+            fetch('https://api.ipify.org?format=json')
+                .then(response => response.json())
+                .then(data => console.log(data.ip))
+                .catch(error => console.error('Error:', error));
+        }
+
+        const button = document.getElementById('getIpBtn');
+        button.addEventListener('click', fetchIP);
+    </script>
+</body>
+</html>
