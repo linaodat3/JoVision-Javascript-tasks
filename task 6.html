@@ -1,0 +1,97 @@
+<!html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Array Methods</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        button {
+            display: block;
+            margin: 10px 0;
+            padding: 12px 18px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>JavaScript Array Methods Test Page</h1>
+
+    <button id="btn1">A: Remove numbers divisible by 3</button>
+    <button id="btn2">B: Add numbers from 100 to 150</button>
+    <button id="btn3">C: Add 3 to each member</button>
+    <button id="btn4">D: Print members from index 20 to 40</button>
+    <button id="btn5">E: Shuffle, then sort descending</button>
+
+    <script>
+        function createArray0to100() {
+            const arr = [];
+            for (let i = 0; i <= 100; i++) {
+                arr.push(i);
+            }
+            return arr;
+        }
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                let j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+
+        document.getElementById('btn1').addEventListener('click', () => {
+            console.log("--- Button A Clicked ---");
+            let baseArray = createArray0to100();
+            let filteredArray = baseArray.filter(num => num % 3 !== 0);
+            console.log("Array with numbers divisible by 3 removed:", filteredArray);
+        });
+
+        document.getElementById('btn2').addEventListener('click', () => {
+            console.log("--- Button B Clicked ---");
+            let baseArray = createArray0to100(); 
+            for (let i = 101; i <= 150; i++) {
+                baseArray.push(i);
+            }
+            console.log("Array with 101-150 added:", baseArray);
+        });
+
+        document.getElementById('btn3').addEventListener('click', () => {
+            console.log("--- Button C Clicked ---");
+            let baseArray = createArray0to100();
+            let mappedArray = baseArray.map(num => num + 3);
+            console.log("Array with 3 added to each member:", mappedArray);
+        });
+
+        document.getElementById('btn4').addEventListener('click', () => {
+            console.log("--- Button D Clicked ---");
+            let baseArray = createArray0to100();
+            let slicedArray = baseArray.slice(20, 41); 
+            console.log("Array members from index 20 to 40:", slicedArray);
+        });
+
+        document.getElementById('btn5').addEventListener('click', () => {
+            console.log("--- Button E Clicked ---");
+            let baseArray = createArray0to100();
+            shuffleArray(baseArray);
+            console.log("Shuffled array:", baseArray);
+            baseArray.sort((a, b) => b - a);
+            console.log("Sorted (descending):", baseArray);
+        });
+    </script>
+
+</body>
+</html>
