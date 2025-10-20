@@ -45,18 +45,9 @@
         }
 
         function updateClock() {
-            try {
-                const clockElement = document.getElementById('clockDisplay');
-
-                if (clockElement) {
-                    const timeString = getFormattedTimeString();
-                    clockElement.textContent = timeString;
-                } else {
-                    console.error("Error: Element with id 'clockDisplay' not found.");
-                }
-
-            } catch (e) {
-                console.error("Error occurred in updateClock:", e);
+            const clockElement = document.getElementById('clockDisplay');
+            if (clockElement) {
+                clockElement.textContent = getFormattedTimeString();
             }
         }
 
