@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 11</title>
+</head>
+<body>
+    <button id="getIpButton">Get ip</button>
+
+    <script>
+        const button = document.getElementById("getIpButton");
+
+        button.addEventListener("click", () => {
+            fetch("https://api.ipify.org/")
+                .then(response => {
+                    if (!response.ok) throw new Error("Network response was not ok");
+                    return response.text();
+                })
+                .then(ip => {
+                    button.textContent = ip;
+                })
+                .catch(error => {
+                    alert("Error: " + error.message);
+                });
+        });
+    </script>
+</body>
+</html>
